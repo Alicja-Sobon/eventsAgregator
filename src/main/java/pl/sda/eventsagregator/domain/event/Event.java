@@ -40,6 +40,7 @@ public class Event {
     @JoinColumn(name="user_id", nullable=false)
     private User organizer;
 
+    //TODO will be implemented by EA-4
 //    private List<Attendance> attendances = new ArrayList<>();
 
 //    private List<Comment> comments = new ArrayList<>();
