@@ -4,12 +4,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
+import pl.sda.eventsagregator.domain.comment.Comment;
 import pl.sda.eventsagregator.domain.user.User;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +40,20 @@ public class Event {
     private User organizer;
 
     //TODO will be implemented by EA-4
-//    private List<Attendance> attendances = new ArrayList<>();
 
-//    private List<Comment> comments = new ArrayList<>();
+    @ManyToMany
+    @JoinTable(
+            name = "event_attendants",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> attendants = new ArrayList<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "event_comments",
+            joinColumns = @JoinColumn(name = "event_id"),
+            inverseJoinColumns = @JoinColumn(name = "comment_id"))
+    private List<Comment> comments = new ArrayList<>();
 
 
 }
