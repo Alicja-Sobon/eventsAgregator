@@ -3,13 +3,10 @@ package pl.sda.eventsagregator.domain.user;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.context.annotation.Role;
 import pl.sda.eventsagregator.domain.event.Event;
 
 import javax.persistence.*;
-import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
@@ -38,6 +35,5 @@ public class User {
 
     @OneToMany(mappedBy = "organizer")
     private List<Event> events = new ArrayList<>();
-
 
 }
