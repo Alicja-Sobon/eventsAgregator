@@ -36,10 +36,8 @@ public class Event {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name="user_id", nullable=false)
+    @JoinColumn(name = "user_id", nullable = false)
     private User organizer;
-
-    //TODO will be implemented by EA-4
 
     @ManyToMany
     @JoinTable(
@@ -54,6 +52,4 @@ public class Event {
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "comment_id"))
     private List<Comment> comments = new ArrayList<>();
-
-
 }
