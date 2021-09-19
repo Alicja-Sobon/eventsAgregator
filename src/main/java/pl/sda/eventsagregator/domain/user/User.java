@@ -35,5 +35,4 @@ public class User {
 
     @OneToMany(mappedBy = "organizer")
     private List<Event> events = new ArrayList<>();
-
 }

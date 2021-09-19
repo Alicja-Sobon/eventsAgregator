@@ -24,7 +24,6 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-
     @NotBlank(message = "Title can not be empty nor blank")
     private String title;
 
