@@ -13,6 +13,7 @@ interface CommentMapper {
 
     @Mappings({
             @Mapping(target = "id", ignore = true),
+            @Mapping(target = "user", ignore = true)
 
     })
     Comment toComment(CommentCreateRequest request);

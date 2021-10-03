@@ -12,7 +12,6 @@ class CommentMapperSpec extends Specification {
         def result = CommentMapper.MAPPER.toComment(request)
 
         then:
-        result.user == request.user
         result.message == request.message
     }
 

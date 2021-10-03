@@ -1,7 +1,6 @@
 package pl.sda.eventsagregator.domain.user;
 
 import lombok.Data;
-
 import pl.sda.eventsagregator.domain.event.Event;
 
 import java.util.ArrayList;

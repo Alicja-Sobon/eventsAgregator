@@ -4,13 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.validator.constraints.Range;
-import pl.sda.eventsagregator.domain.event.Event;
 
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
-import java.util.ArrayList;
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -26,7 +22,7 @@ public class UserCreateRequest {
     @Range(min = 8, max = 30, message = "Password must be between 8 and 30 characters long")
     String password;
 
-//    String role;
+    Role role;
 
 //    @OneToMany(mappedBy = "organizer")
 //    List<Event> events = new ArrayList<>();

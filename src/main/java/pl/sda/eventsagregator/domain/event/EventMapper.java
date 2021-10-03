@@ -13,6 +13,7 @@ interface EventMapper {
 
     @Mappings({
             @Mapping(target = "id", ignore = true),
+            @Mapping(target = "organizer", ignore = true)
 
     })
     Event toEvent(EventCreateRequest request);
