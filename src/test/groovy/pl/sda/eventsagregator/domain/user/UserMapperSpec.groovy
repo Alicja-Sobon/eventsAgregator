@@ -19,7 +19,7 @@ class UserMapperSpec extends Specification{
 
     def 'should map User to UserListView'(){
         given:
-        def user = new User(1L,"Małgorzata", "queen123", Role.U, [])
+        def user = new User(1L,"Małgorzata", "queen123", Role.USER, [])
 
         when:
         def result = UserMapper.MAPPER.toUserListView(user)
@@ -31,7 +31,7 @@ class UserMapperSpec extends Specification{
 
     def 'should map User to UserSingleView'(){
         given:
-        def user = new User(1L, "Tatiana", "paSSword", Role.A, [])
+        def user = new User(1L, "Tatiana", "paSSword", Role.ADMIN, [])
 
         when:
         def result = UserMapper.MAPPER.toUserSingleView(user)

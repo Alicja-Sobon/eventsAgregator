@@ -11,9 +11,7 @@ public class UserListView {
 
     String username;
 
-//    String password;
-
-//    String role;
+    Role role;
 
     //    @OneToMany(mappedBy = "organizer")
     List<Event> events = new ArrayList<>();

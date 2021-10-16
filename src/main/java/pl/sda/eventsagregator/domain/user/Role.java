@@ -4,7 +4,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum Role {
-    A("admin"), O("organizer"), U("user");
+    ADMIN("admin"), ORGANIZER("organizer"), USER("user");
 
     private String role;
 }
