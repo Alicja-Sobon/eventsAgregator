@@ -31,7 +31,7 @@ public class UserService {
         return MAPPER.toUserSingleView(findById(id));
     }
 
-    User findById(Long id) {
+    public User findById(Long id) {
         return repository
                 .findById(id)
                 .orElseThrow(() -> new UserNotFoundException(id));

@@ -2,22 +2,25 @@ package pl.sda.eventsagregator.domain.event;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import pl.sda.eventsagregator.domain.user.User;
+import pl.sda.eventsagregator.domain.user.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static pl.sda.eventsagregator.domain.event.EventMapper.MAPPER;
 
-
 @Service
 @RequiredArgsConstructor
 public class EventService {
 
     private final EventRepository repository;
+    private final UserService userService;
 
     public void addEvent(EventCreateRequest request) {
         Event event = MAPPER.toEvent(request);
+        User organizer = userService.findById(request.getOrganizerId());
+        event.setOrganizer(organizer);
         repository.save(event);
     }
 

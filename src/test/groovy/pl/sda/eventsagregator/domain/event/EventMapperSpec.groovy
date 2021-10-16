@@ -8,7 +8,7 @@ class EventMapperSpec extends Specification {
 
     def 'should map EventCreateRequest to Event'() {
         given:
-        def request = new EventCreateRequest("bieg", LocalDateTime.MIN, LocalDateTime.MAX, "bieg wokół komina", null)
+        def request = new EventCreateRequest("bieg", LocalDateTime.MIN, LocalDateTime.MAX, "bieg wokół komina")
 
         when:
         def result = EventMapper.MAPPER.toEvent(request)
@@ -18,7 +18,6 @@ class EventMapperSpec extends Specification {
         result.startDate == request.startDate
         result.finishDate == request.finishDate
         result.description == request.description
-        result.organizer == request.organizer
     }
 
     def 'should map Event to EventListView'() {

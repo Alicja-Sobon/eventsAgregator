@@ -4,10 +4,6 @@ import lombok.Data;
 import pl.sda.eventsagregator.domain.comment.Comment;
 import pl.sda.eventsagregator.domain.user.User;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

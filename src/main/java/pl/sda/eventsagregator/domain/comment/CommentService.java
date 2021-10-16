@@ -2,21 +2,25 @@ package pl.sda.eventsagregator.domain.comment;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.sda.eventsagregator.domain.user.User;
+import pl.sda.eventsagregator.domain.user.UserService;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import static pl.sda.eventsagregator.domain.comment.CommentMapper.MAPPER;
 
-
 @Service
 @RequiredArgsConstructor
 public class CommentService {
 
     private final CommentRepository repository;
+    private final UserService userService;
 
     public void addComment(CommentCreateRequest request) {
-        Comment comment = MAPPER.toComment(request);
+        Comment comment = CommentMapper.MAPPER.toComment(request);
+        User user = userService.findById(request.getUserId());
+        comment.setUser(user);
         repository.save(comment);
     }
 

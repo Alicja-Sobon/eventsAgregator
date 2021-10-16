@@ -1,14 +1,12 @@
 package pl.sda.eventsagregator.domain.user;
 
 import lombok.RequiredArgsConstructor;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-
 
 @Controller
 @RequiredArgsConstructor

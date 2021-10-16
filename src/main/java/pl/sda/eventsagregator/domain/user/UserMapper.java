@@ -20,5 +20,4 @@ interface UserMapper {
     UserListView toUserListView(User user);
 
     UserSingleView toUserSingleView(User user);
-
 }

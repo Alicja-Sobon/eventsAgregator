@@ -23,7 +23,7 @@ public class User {
 
     private String password;
 
-    private String role;
+    private Role role;
 
     @OneToMany(mappedBy = "organizer")
     private List<Event> events = new ArrayList<>();
