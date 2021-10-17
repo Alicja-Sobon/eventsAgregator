@@ -19,9 +19,9 @@ public class EventListView {
 
     private String description;
 
-    private User organizer;
-
-    private List<User> attendants = new ArrayList<>();
-
-    private List<Comment> comments = new ArrayList<>();
+//    private User organizer;
+//
+//    private List<User> attendants = new ArrayList<>();
+//
+//    private List<Comment> comments = new ArrayList<>();
 }

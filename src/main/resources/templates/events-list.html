@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcoming page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container my-3">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><p>Title</p></th>
+            <th><p>Start date</p></th>
+            <th><p>Finish date</p></th>
+            <th><p>Description</p></th>
+<!--            <th><p>organize</p></th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="event : ${events}">
+            <td th:text="${event.getTitle()}"></td>
+            <td th:text="${event.getStartDate()}"></td>
+            <td th:text="${event.getFinishDate()}"></td>
+            <td th:text="${event.getDescription()}"></td>
+<!--            <td th:text="${event.getOrganizer()}"></td>-->
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
