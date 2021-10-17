@@ -18,6 +18,9 @@ interface EventMapper {
     })
     Event toEvent(EventCreateRequest request);
 
+    @Mappings({
+            @Mapping(target = "organizer", source = "organizer.username")
+    })
     EventListView toEventListView(Event event);
 
     EventSingleView toEventSingleView(Event event);

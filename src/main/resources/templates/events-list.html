@@ -15,16 +15,16 @@
             <th><p>Start date</p></th>
             <th><p>Finish date</p></th>
             <th><p>Description</p></th>
-<!--            <th><p>organize</p></th>-->
+            <th><p>Organizer</p></th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="event : ${events}">
             <td th:text="${event.getTitle()}"></td>
-            <td th:text="${event.getStartDate()}"></td>
-            <td th:text="${event.getFinishDate()}"></td>
+            <td th:text="${#temporals.format(event.startDate, 'dd-MM-yyyy HH:mm')}"></td>
+            <td th:text="${#temporals.format(event.finishDate, 'dd-MM-yyyy HH:mm')}"></td>
             <td th:text="${event.getDescription()}"></td>
-<!--            <td th:text="${event.getOrganizer()}"></td>-->
+            <td th:text="${event.getOrganizer()}"></td>
         </tr>
         </tbody>
     </table>

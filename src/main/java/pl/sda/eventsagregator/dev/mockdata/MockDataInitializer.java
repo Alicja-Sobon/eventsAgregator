@@ -13,6 +13,7 @@ import pl.sda.eventsagregator.domain.user.UserCreateRequest;
 import pl.sda.eventsagregator.domain.user.UserService;
 
 import javax.annotation.PostConstruct;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -60,10 +61,12 @@ public class MockDataInitializer {
                 .collect(toList());
 
         for (int i = 0; i < count; i++) {
+            LocalDateTime startDate = START_DATES.get(random.nextInt(START_DATES_COUNT));
+            LocalDateTime finishDate = startDate.plusDays(random.nextInt(20));
             eventService.addEvent(new EventCreateRequest(
                     TITLES.get(random.nextInt(TITLES_COUNT)),
-                    START_DATES.get(random.nextInt(START_DATES_COUNT)),
-                    FINISH_DATES.get(random.nextInt(FINISH_DATES_COUNT)),
+                    startDate,
+                    finishDate,
                     DESCRIPTIONS.get(random.nextInt(DESCRIPTIONS_COUNT)),
                     organizerIds.get(random.nextInt(organizerIds.size()))));
         }

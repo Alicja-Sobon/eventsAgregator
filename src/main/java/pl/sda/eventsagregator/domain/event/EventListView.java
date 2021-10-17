@@ -1,6 +1,7 @@
 package pl.sda.eventsagregator.domain.event;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.sda.eventsagregator.domain.comment.Comment;
 import pl.sda.eventsagregator.domain.user.User;
 
@@ -19,7 +20,7 @@ public class EventListView {
 
     private String description;
 
-//    private User organizer;
+    private String organizer;
 //
 //    private List<User> attendants = new ArrayList<>();
 //

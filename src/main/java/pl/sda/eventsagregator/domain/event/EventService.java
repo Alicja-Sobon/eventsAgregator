@@ -15,9 +15,11 @@ import static pl.sda.eventsagregator.domain.event.EventMapper.MAPPER;
 public class EventService {
 
     private final EventRepository repository;
+    private final EventValidator eventValidator;
     private final UserService userService;
 
     public void addEvent(EventCreateRequest request) {
+        eventValidator.validate(request);
         Event event = MAPPER.toEvent(request);
         User organizer = userService.findById(request.getOrganizerId());
         event.setOrganizer(organizer);

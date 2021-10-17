@@ -24,11 +24,11 @@ public class EventController {
         return "events-list";
     }
 
-//    @PostMapping
-//    @ResponseStatus(HttpStatus.CREATED)
-//    public void addEvent(@RequestBody @Valid EventCreateRequest request) {
-//        service.addEvent(request);
-//    }
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public void addEvent(@RequestBody @Valid EventCreateRequest request) {
+        service.addEvent(request);
+    }
 //
 //    @GetMapping
 //    public List<EventListView> getAll() {
