@@ -3,6 +3,7 @@ package pl.sda.eventsagregator.domain.user;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -10,10 +11,18 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("api/user")
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService service;
+
+
+    @GetMapping
+    public String getUsers (Model model) {
+        List<UserListView> users = service.getAll();
+        model.addAttribute("users", users);
+        return "users-list";
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -21,12 +30,12 @@ public class UserController {
         service.addUser(request);
     }
 
-    @GetMapping
-    public List<UserListView> getAll() {
-        return service.getAll();
-    }
+//    @GetMapping
+//    public List<UserListView> getAll() {
+//        return service.getAll();
+//    }
 
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public UserSingleView getById(@PathVariable Long id) {
         return service.getById(id);
     }

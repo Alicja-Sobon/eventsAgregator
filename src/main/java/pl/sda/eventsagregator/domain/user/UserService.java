@@ -14,6 +14,7 @@ public class UserService {
 
     private final UserRepository repository;
 
+
     public void addUser(UserCreateRequest request) {
         User user = MAPPER.toUser(request);
         repository.save(user);

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcoming page</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.1.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container my-3">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th><p>username</p></th>
+            <th><p>role</p></th>
+            <th><p>events</p></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.getUsername()}"></td>
+            <td th:text="${user.getRole()}"></td>
+            <td th:text="${user.getEvents()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
