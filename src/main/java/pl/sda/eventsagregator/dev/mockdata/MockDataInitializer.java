@@ -8,6 +8,7 @@ import pl.sda.eventsagregator.domain.comment.CommentCreateRequest;
 import pl.sda.eventsagregator.domain.comment.CommentService;
 import pl.sda.eventsagregator.domain.event.EventCreateRequest;
 import pl.sda.eventsagregator.domain.event.EventService;
+import pl.sda.eventsagregator.domain.user.OrganizerListView;
 import pl.sda.eventsagregator.domain.user.UserCreateRequest;
 import pl.sda.eventsagregator.domain.user.UserService;
 
@@ -17,6 +18,7 @@ import java.util.Random;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+import static java.util.stream.Collectors.toList;
 import static pl.sda.eventsagregator.dev.mockdata.CommentMockData.MESSAGES;
 import static pl.sda.eventsagregator.dev.mockdata.CommentMockData.MESSAGES_COUNT;
 import static pl.sda.eventsagregator.dev.mockdata.EventMockData.*;
@@ -53,7 +55,9 @@ public class MockDataInitializer {
     }
 
     void initializeEvents() {
-        List<Long> organizerIds = IntStream.rangeClosed(1, 10).boxed().map(Integer::longValue).collect(Collectors.toList());
+        List<Long> organizerIds = userService.getAllOrganizers().stream()
+                .map(OrganizerListView::getId)
+                .collect(toList());
 
         for (int i = 0; i < count; i++) {
             eventService.addEvent(new EventCreateRequest(
@@ -66,7 +70,7 @@ public class MockDataInitializer {
     }
 
     void initializeComments() {
-        List<Long> userIds = IntStream.rangeClosed(1, 10).boxed().map(Integer::longValue).collect(Collectors.toList());
+        List<Long> userIds = IntStream.rangeClosed(1, 10).boxed().map(Integer::longValue).collect(toList());
 
         for (int i = 0; i < count; i++) {
             commentService.addComment(new CommentCreateRequest(

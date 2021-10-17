@@ -48,4 +48,9 @@ public class UserService {
     public void remove(Long id) {
         repository.delete(findById(id));
     }
+
+    public List<OrganizerListView> getAllOrganizers() {
+        List<User> organizers = repository.findAllByRole(Role.ORGANIZER);
+        return organizers.stream().map(MAPPER::toOrganizerListView).collect(Collectors.toList());
+    }
 }

@@ -31,7 +31,7 @@ public class Event {
     private String description;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "organizer_id", nullable = false)
     private User organizer;
 
     @ManyToMany

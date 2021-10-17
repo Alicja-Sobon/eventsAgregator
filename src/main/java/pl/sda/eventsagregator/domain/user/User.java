@@ -25,8 +25,9 @@ public class User {
 
     private String password;
 
+    @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "organizer")
+    @OneToMany(mappedBy = "organizer", fetch = FetchType.EAGER)
     private List<Event> events = new ArrayList<>();
 }

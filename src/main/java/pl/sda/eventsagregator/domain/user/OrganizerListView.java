@@ -2,12 +2,14 @@ package pl.sda.eventsagregator.domain.user;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
-public class UserListView {
+public class OrganizerListView {
 
     Long id;
 
     String username;
 
-    Role role;
+    String events;
 }

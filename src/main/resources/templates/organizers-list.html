@@ -12,15 +12,13 @@
         <thead>
         <tr>
             <th><p>username</p></th>
-            <th><p>role</p></th>
-<!--            <th><p>events</p></th>-->
+            <th><p>events</p></th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
-            <td th:text="${user.getUsername()}"></td>
-            <td th:text="${user.getRole()}"></td>
-<!--            <td th:text="${user.getEvents()}"></td>-->
+        <tr th:each="organizer : ${organizers}">
+            <td th:text="${organizer.getUsername()}"></td>
+            <td th:text="${organizer.getEvents()}"></td>
         </tr>
         </tbody>
     </table>

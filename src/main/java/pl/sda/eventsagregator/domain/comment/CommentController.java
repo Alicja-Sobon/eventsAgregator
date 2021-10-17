@@ -10,6 +10,7 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
+@RequestMapping("/comments")
 public class CommentController {
 
     private final CommentService service;
